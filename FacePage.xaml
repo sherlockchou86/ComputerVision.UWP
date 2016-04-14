@@ -12,16 +12,143 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Padding="10,14,0,14" Background="{ThemeResource SystemControlForegroundChromeMediumBrush}"
                     >
-            <TextBlock Text="人脸分析" FontSize="16"></TextBlock>
+            <TextBlock Text="Face Analysis" FontSize="16"></TextBlock>
         </StackPanel>
+        <RelativePanel Name="spMain" Grid.Row="1">
+            <Image Name="imgPhoto" 
+                   RelativePanel.AlignLeftWithPanel="True"
+                   RelativePanel.AlignRightWithPanel="True"
+                   RelativePanel.AlignTopWithPanel="True"
+                   RelativePanel.AlignBottomWithPanel="True"
+                   Stretch="Uniform">
+            </Image>
+            <Canvas Name="cvasMain" RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    >
+            </Canvas>
+        </RelativePanel>
+        <Pivot Grid.Row="2" Padding="1,1,1,10">
+            <Pivot.Items>
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock FontSize="16">Faces</TextBlock>
+                    </PivotItem.Header>
+                    <PivotItem.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="62"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="72"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="#" Grid.Row="0" Grid.Column="0" Padding="1"></TextBlock>
+                            <TextBlock Text="Age" Grid.Row="0" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock Text="Sex" Grid.Row="0" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock Text="Smile" Grid.Row="0" Grid.Column="3" Padding="1"></TextBlock>
+                            <TextBlock Text="Glass" Grid.Row="0" Grid.Column="4" Padding="1"></TextBlock>
+                            <Border Grid.Row="1" Grid.ColumnSpan="5" Height="0.5" Background="White" Margin="0,5,0,5"></Border>
+                            
+                            <TextBlock Text="01" Grid.Row="2" Grid.Column="0" Padding="1"></TextBlock>
+                            <TextBlock Text="25" Grid.Row="2" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock Text="female" Grid.Row="2" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock Text="smile" Grid.Row="2" Grid.Column="3" Padding="1"></TextBlock>
+                            <TextBlock Text="no glass" Grid.Row="2" Grid.Column="4" Padding="1"></TextBlock>
 
-        <RelativePanel Grid.Row="2" BorderThickness="0.5" BorderBrush="{ThemeResource SystemControlForegroundChromeMediumBrush}" >
+                            <TextBlock Text="02" Grid.Row="3" Grid.Column="0" Padding="1"></TextBlock>
+                            <TextBlock Text="29" Grid.Row="3" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock Text="male" Grid.Row="3" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock Text="no smile" Grid.Row="3" Grid.Column="3" Padding="1"></TextBlock>
+                            <TextBlock Text="glass" Grid.Row="3" Grid.Column="4" Padding="1"></TextBlock>
+                        </Grid>
+                    </PivotItem.Content>
+                </PivotItem>
+                <PivotItem>
+                    <PivotItem.Header>
+                        <TextBlock FontSize="16">Emotions</TextBlock>
+                    </PivotItem.Header>
+                    <PivotItem.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="18"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.25*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.05*"></ColumnDefinition>
+                                <ColumnDefinition Width="1.05*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="11" Text="#" Grid.Row="0" Grid.Column="0" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="anger" Grid.Row="0" Grid.Column="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="contempt" Grid.Row="0" Grid.Column="2"></TextBlock>
+                            <TextBlock FontSize="11" Text="disgust" Grid.Row="0" Grid.Column="3"></TextBlock>
+                            <TextBlock FontSize="11" Text="fear" Grid.Row="0" Grid.Column="4"></TextBlock>
+                            <TextBlock FontSize="11" Text="happiness" Grid.Row="0" Grid.Column="5"></TextBlock>
+                            <TextBlock FontSize="11" Text="neutral" Grid.Row="0" Grid.Column="6"></TextBlock>
+                            <TextBlock FontSize="11" Text="sadness" Grid.Row="0" Grid.Column="7"></TextBlock>
+                            <TextBlock FontSize="11" Text="surprise" Grid.Row="0" Grid.Column="8"></TextBlock>
+                            <Border Grid.Row="1" Grid.ColumnSpan="9" Background="White" Height="0.5" Margin="0,5,0,5"></Border>
+                            
+                            <TextBlock FontSize="11" Text="01" Grid.Row="2" Grid.Column="0" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.1" Grid.Row="2" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.2" Grid.Row="2" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.12" Grid.Row="2" Grid.Column="3" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.89" Grid.Row="2" Grid.Column="4" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.01" Grid.Row="2" Grid.Column="5" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0" Grid.Row="2" Grid.Column="6" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0" Grid.Row="2" Grid.Column="7" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0" Grid.Row="2" Grid.Column="8" Padding="1"></TextBlock>
+
+                            <TextBlock FontSize="11" Text="01" Grid.Row="3" Grid.Column="0" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.1" Grid.Row="3" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.2" Grid.Row="3" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.12" Grid.Row="3" Grid.Column="3" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.89" Grid.Row="3" Grid.Column="4" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0.01" Grid.Row="3" Grid.Column="5" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0" Grid.Row="3" Grid.Column="6" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0" Grid.Row="3" Grid.Column="7" Padding="1"></TextBlock>
+                            <TextBlock FontSize="11" Text="0" Grid.Row="3" Grid.Column="8" Padding="1"></TextBlock>
+                        </Grid>
+                    </PivotItem.Content>
+                </PivotItem>
+            </Pivot.Items>
+        </Pivot>
+        <RelativePanel Grid.Row="3" BorderThickness="0.5" BorderBrush="{ThemeResource SystemControlForegroundChromeMediumBrush}" >
             <TextBlock VerticalAlignment="Center"                      
-                       Text="相机/相册/图片URL"
-                       Padding="10,0,0,0"
+                       Text="Camera/Album/Photo URL"
+                       Padding="14,0,0,0"
                        Name="txtLocation" 
                        RelativePanel.AlignLeftWithPanel="True" 
                        RelativePanel.AlignRightWithPanel="True" 
@@ -32,19 +159,16 @@
             <Button Name="btnSubmit"                    
                     RelativePanel.AlignRightWithPanel="True">
                 <Button.Content>
-                    <TextBlock Text="分析" FontSize="16" Margin="4">
+                    <TextBlock Text="Analyse" FontSize="16" Margin="4">
                     </TextBlock>
                 </Button.Content>
                 <Button.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem Text="拍照">
-
+                        <MenuFlyoutItem Text="From Camera" Click="MenuFlyoutItem_Click">
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="从相册里选">
-
+                        <MenuFlyoutItem Text="From Album" Click="MenuFlyoutItem_Click">
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="粘贴URL">
-
+                        <MenuFlyoutItem Text="From URL" Click="MenuFlyoutItem_Click">
                         </MenuFlyoutItem>
                     </MenuFlyout>
                 </Button.Flyout>

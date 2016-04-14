@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <SplitView Name="navSplitView" DisplayMode="CompactOverlay" CompactPaneLength="58" OpenPaneLength="170">
+        <SplitView Name="navSplitView" DisplayMode="CompactOverlay" CompactPaneLength="58" OpenPaneLength="180">
             <SplitView.Pane>
                 <ListView SelectionMode="Single" SelectionChanged="ListView_SelectionChanged">
                     <ListViewItem Padding="8,12,0,12" Tag="0">
@@ -17,13 +17,13 @@
                     <ListViewItem Padding="11,12,0,12" Tag="1">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="10,3,25,0"></TextBlock>
-                            <TextBlock FontSize="16">图片分析</TextBlock>
+                            <TextBlock FontSize="16">Photo Analysis</TextBlock>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Padding="11,12,0,12" Tag="2">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="10,3,25,0"></TextBlock>
-                            <TextBlock FontSize="16">人脸分析</TextBlock>
+                            <TextBlock FontSize="16">Face Analysis</TextBlock>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
