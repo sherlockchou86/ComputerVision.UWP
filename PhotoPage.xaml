@@ -24,15 +24,20 @@
                    RelativePanel.AlignRightWithPanel="True"
                    RelativePanel.AlignTopWithPanel="True"
                    RelativePanel.AlignBottomWithPanel="True"
+                   ImageOpened="imgPhoto_ImageOpened"
                    Stretch="Uniform">
             </Image>
             <Canvas Name="cvasMain" RelativePanel.AlignLeftWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignTopWithPanel="True"
                     RelativePanel.AlignBottomWithPanel="True"
+                    SizeChanged="cvasMain_SizeChanged"   
                     >
             </Canvas>
         </RelativePanel>
+        <ProgressRing Grid.Row="1" Name="ringLoading" Height="60" Width="60">
+            
+        </ProgressRing>
         <Pivot Grid.Row="2" Padding="1,1,1,10">
             <Pivot.Items>
                 <PivotItem>
@@ -40,7 +45,7 @@
                         <TextBlock FontSize="16">Description</TextBlock>
                     </PivotItem.Header>
                     <PivotItem.Content>
-                        <Grid>
+                        <Grid Name="gridDesc">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
@@ -59,16 +64,16 @@
                             <Border Grid.Row="1" Grid.ColumnSpan="3" Background="White" Height="0.5" Margin="0,5,0,5"></Border>
                             
                             <TextBlock Text="decription" Grid.Row="2" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="decription text" Grid.Row="2" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="0.5" Grid.Row="2" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock Name="txtDesc" Text="" Grid.Row="2" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock Name="txtDesc_Score" Text="" Grid.Row="2" Grid.Column="2" Padding="1"></TextBlock>
                             
                             <TextBlock Text="adult content" Grid.Row="3" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="false" Grid.Row="3" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="0.6" Grid.Row="3" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock Name="txtAdult" Text="" Grid.Row="3" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock Name="txtAdult_Score" Text="" Grid.Row="3" Grid.Column="2" Padding="1"></TextBlock>
                             
                             <TextBlock Text="racy content" Grid.Row="4" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="false" Grid.Row="4" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="0.7" Grid.Row="4" Grid.Column="2" Padding="1"></TextBlock>
+                            <TextBlock Name="txtRacy" Text="" Grid.Row="4" Grid.Column="1" Padding="1"></TextBlock>
+                            <TextBlock Name="txtRacy_Score" Text="" Grid.Row="4" Grid.Column="2" Padding="1"></TextBlock>
                         </Grid>
                     </PivotItem.Content>
                 </PivotItem>
@@ -77,8 +82,14 @@
                         <TextBlock FontSize="16">Tags</TextBlock>
                     </PivotItem.Header>
                     <PivotItem.Content>
-                        <Grid>
+                        <Grid Name="gridTags">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
@@ -101,17 +112,6 @@
                             <TextBlock Text="Score" Grid.Row="0" Grid.Column="2" Padding="1"></TextBlock>
                             <Border Grid.Row="1" Grid.ColumnSpan="3" Background="White" Height="0.5" Margin="0,5,0,5"></Border>
                             
-                            <TextBlock Text="01" Grid.Row="2" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="outdoor" Grid.Row="2" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="0.5" Grid.Row="2" Grid.Column="2" Padding="1"></TextBlock>
-
-                            <TextBlock Text="02" Grid.Row="3" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="people" Grid.Row="3" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="0.6" Grid.Row="3" Grid.Column="2" Padding="1"></TextBlock>
-
-                            <TextBlock Text="03" Grid.Row="4" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="tree" Grid.Row="4" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="0.7" Grid.Row="4" Grid.Column="2" Padding="1"></TextBlock>
                         </Grid>
                     </PivotItem.Content>
                 </PivotItem>
@@ -120,8 +120,13 @@
                         <TextBlock FontSize="16">Faces</TextBlock>
                     </PivotItem.Header>
                     <PivotItem.Content>
-                        <Grid>
+                        <Grid Name="gridFaces">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
@@ -144,21 +149,6 @@
                             <TextBlock Text="Sex" Grid.Row="0" Grid.Column="2" Padding="1"></TextBlock>
                             <Border Grid.Row="1" Grid.ColumnSpan="3" Height="0.5" Margin="0,5,0,5" Background="White"></Border>
                             
-                            <TextBlock Text="01" Grid.Row="2" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="24" Grid.Row="2" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="male" Grid.Row="2" Grid.Column="2" Padding="1"></TextBlock>
-
-                            <TextBlock Text="02" Grid.Row="3" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="26" Grid.Row="3" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="female" Grid.Row="3" Grid.Column="2" Padding="1"></TextBlock>
-
-                            <TextBlock Text="03" Grid.Row="4" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="33" Grid.Row="4" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="female" Grid.Row="4" Grid.Column="2" Padding="1"></TextBlock>
-
-                            <TextBlock Text="04" Grid.Row="5" Grid.Column="0" Padding="1"></TextBlock>
-                            <TextBlock Text="33" Grid.Row="5" Grid.Column="1" Padding="1"></TextBlock>
-                            <TextBlock Text="female" Grid.Row="5" Grid.Column="2" Padding="1"></TextBlock>
                         </Grid>
                     </PivotItem.Content>
                 </PivotItem>
