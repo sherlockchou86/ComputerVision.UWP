@@ -25,6 +25,7 @@
                    RelativePanel.AlignTopWithPanel="True"
                    RelativePanel.AlignBottomWithPanel="True"
                    ImageOpened="imgPhoto_ImageOpened"
+                   Tapped="cvasMain_Tapped"
                    Stretch="Uniform">
             </Image>
             <Canvas Name="cvasMain" RelativePanel.AlignLeftWithPanel="True"
@@ -32,7 +33,11 @@
                     RelativePanel.AlignTopWithPanel="True"
                     RelativePanel.AlignBottomWithPanel="True"
                     SizeChanged="cvasMain_SizeChanged"
+                    Tapped="cvasMain_Tapped"
                     >
+                <Popup Name="emotionData" IsOpen="False" IsLightDismissEnabled="True">
+                    
+                </Popup>
             </Canvas>
         </RelativePanel>
         <ProgressRing Name="ringLoading" Grid.Row="1" Width="60" Height="60">

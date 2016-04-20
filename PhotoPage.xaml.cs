@@ -152,6 +152,7 @@ namespace ComputerVision.UWP
             }
             if (result.Faces != null)
             {
+                int count = 1;
                 //将face矩形显示到界面（如果有）
                 foreach (var face in result.Faces)
                 {
@@ -160,10 +161,18 @@ namespace ComputerVision.UWP
                     rect.Height = face.FaceRectangle.Height * p;
                     Canvas.SetLeft(rect, face.FaceRectangle.Left * p + offset_w);
                     Canvas.SetTop(rect, face.FaceRectangle.Top * p + offset_h);
-                    rect.Stroke = new SolidColorBrush(Colors.Blue);
+                    rect.Stroke = new SolidColorBrush(Colors.Orange);
                     rect.StrokeThickness = 3;
 
                     cvasMain.Children.Add(rect);
+
+                    TextBlock txt = new TextBlock();
+                    txt.Foreground = new SolidColorBrush(Colors.Orange);
+                    txt.Text = "#" + count;
+                    Canvas.SetLeft(txt, face.FaceRectangle.Left * p + offset_w);
+                    Canvas.SetTop(txt, face.FaceRectangle.Top * p + offset_h - 20);
+                    cvasMain.Children.Add(txt);
+                    count++;
                 }
             }
             if (!init)
